@@ -1,0 +1,46 @@
+set email for git repo:
+git config --global user.email "david.cohn.2018@gmail.com"
+
+show config for local and global:
+git config --[global/local] -l
+
+repo staging status:
+git status 
+
+
+init repository for directory:
+cd [folder]
+git init - init git repo [name].git repo
+
+staging:
+git add . - stage all
+git add [file]
+
+git rm --cached [file] - remove from staging
+
+commit:
+ git commit -m "message" - commit stage
+ git commit -am "message" - add all files and commit
+
+
+branch:
+ git checkout -b [branch name]- branching to new branch
+ git checkout [branch name] - move to a branch
+ git branch - show branches
+ git branch -M [new name] - change branch name
+ https://github.com/Duderrino77/Try123.git
+
+merge:
+ git checkout [branch that is merged into from the newer one]
+ git merge [branched that is the new future to merge]
+
+
+show commit :
+ git log --oneline
+
+remote repo:
+git remote add origin https://github.com/Duderrino77/Try123.git -add repo example name of remote will be 'origin' 
+git push -u origin main - push repo example push to remote repo named origin(Try123.git) main branch(changed from master to main)
+git remote - show all remote repo
+git pull - pull changes from branch
+git clone [repo URL] - clone from remote repo
