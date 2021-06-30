@@ -1,0 +1,56 @@
+// Old Way to initialize a vector
+std::vector<int> vec1;
+for(int i = 0; i < 5; i++)
+    vec1.push_back(i);
+
+But in C++11 we can do this in a single line i.e.
+// Initializing a vector using c++11 initializer_list
+std::vector<int> vec = {1,2,3,4,5}; // Compile Error before C++ 11
+==================================================================
+
+And Now this kind of statement {1,2,3} will invoke
+
+vector<T>::vector<T>(initializer_list<T>  elements)
+{
+......
+}
+
+
+class with init_list
+=====================
+Point::Point(std::initializer_list<int> list)
+{
+    if(list.size() == 3)
+    {
+        std::initializer_list<int>::iterator it = list.begin();
+        mX = *it++;
+        mY = *it++;
+        mZ = *it;
+    }
+    std::cout << "Point:: Initializer_list<int>Constructor\n";
+}
+
+calling:
+Point pointobj1( { 1, 2, 3 });
+
+
+Passing variable arguments with std::initialer_list<T>
+======================================================
+
+
+class Point {
+    std::vector<int> arr;
+
+public:
+    //Constructor accepts a initializer_list as argument and
+    // Initialize the member vector with it.
+    Point(const std::initializer_list<int> & list) : arr(list)
+    {}
+    void display() {
+        for(int i : arr)
+            std::cout<<i<<" , ";
+        std::cout<<std::endl;
+    }
+};
+
+ Point pointobj( { 1, 2, 3, 4, 5 });
